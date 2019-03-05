@@ -37,26 +37,29 @@ function printSquare(size){
 printSquare(5)
 // print box
 // need to fix this!!!
-function printBox(rows, columns){
-    // variable sp box can be printed
-    let rect = "";
-    // first for loop to print out columns
-    for(let i = 0; i < columns; i++){
-        // second nested loop to print out the rows.
-        for(let j = 0; j < rows; j++){
-            // or statements that will only print the outside characters for the times between the top and bottom
-            if (i == 1 || i == rows)
-                    rect += "*";
-            else if (j == 1 || j == rows)
-                rect += "\n *";
-            else
-                rect += "\n ";  
+function printBox(rows,columns){
+    // variable for printing the square
+    let rect = '';
+    // first for loop, used for the columns
+    for(let r =0; r <= rows; r++){
+        // second for loop to be used for building rows
+        // inner loop will run however many times "size is"
+        for (let c = 0; c <= columns; c++){
+            // adds a * up till the counter hits whatever size in used
+            if (r == 1 || r ==rows || c == 0 || c == columns){
+            rect += "*"
+            }
+            else{
+                rect += " "
+            }
         }
+        // adds line break after each time the inner loop runs
+        rect += "\n"
     }
-    return rect
+    // returns what the nested for loops print out
+    return rect;
 }
 printBox(6,4)
-
 // factor a number
 function factors(number){
 
@@ -65,7 +68,13 @@ factors()
 
 // cipher
 function cipher(string, offset){
-    code = ""
+    // string to return the coded version
+    let code = "";
+    let index = 0;
+    const cipher = 'abcdefghijklmnopqrstuvwxyz'
+    for(l = 0; l <= string.length; l++){
+
+    }
 }
 cipher('Genius without education is like silver in the mine', 13)
 
@@ -95,3 +104,24 @@ function positiveNumbers(arr){
 }
 positiveNumbers([1,-3,5,-2,0])
 
+// matrix multiplication
+// need to finish!!!
+function matrixMultiplication(matrix1,matrix2){
+    let row = 0;
+    let column = 0;
+    let row2 = 0;
+    let result = [[0,0][0,0]];
+    while row < 2{
+        while column < 2{
+            while (row2 < 2){
+                result [row][column] += matrix1 [row][row2] * matrix2[row2][column];
+                row2++;
+            }
+            row2 = 0;
+            column++;
+        }
+        column = 0;
+        row++;
+    }
+    return result
+}
